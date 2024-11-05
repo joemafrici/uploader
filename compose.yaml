@@ -1,0 +1,11 @@
+services:
+  uploader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3002:80
+    volumes:
+      - uploaded_files:/app/uploads
+volumes:
+  uploaded_files:
