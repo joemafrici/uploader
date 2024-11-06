@@ -31,4 +31,4 @@ async def handle_upload(file: UploadFile):
     file_path = upload_dir / file.filename
     with file_path.open("wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    return {"file_size": file.size}
+    return {"status": "SUCCESS", "file_size": file.size}
