@@ -8,10 +8,10 @@ services:
     volumes:
       - uploaded_files:/app/uploads
     networks:
-      - web
+      - deepwater_web
 volumes:
   uploaded_files:
 
 networks:
-  web:
+  deepwater_web:
     external: true
