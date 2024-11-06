@@ -6,11 +6,9 @@ services:
     ports:
       - 3002:80
     volumes:
-      - uploaded_files:/app/uploads
+      - ./uploads:/app/uploads
     networks:
       - deepwater_web
-volumes:
-  uploaded_files:
 
 networks:
   deepwater_web:
