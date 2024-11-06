@@ -1,4 +1,4 @@
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, UploadFile
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pathlib import Path
@@ -24,7 +24,7 @@ async def say_hello(name: str):
 async def handle_uploader():
     return FileResponse("static/upload_page.html")
 
-@app.post("/api/upload")
+@app.post("/uploader/upload")
 async def handle_upload(file: UploadFile):
     file.filename = utils.sanitize_filename(file.filename)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
