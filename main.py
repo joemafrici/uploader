@@ -11,20 +11,17 @@ static_dir.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
 
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
 
-@app.get("/uploader")
+@app.get("/")
 async def handle_uploader():
     return FileResponse("static/upload_page.html")
 
-@app.post("/uploader/upload")
+@app.post("/api/upload")
 async def handle_upload(file: UploadFile):
     file.filename = utils.sanitize_filename(file.filename)
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
